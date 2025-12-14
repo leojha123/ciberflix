@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/PC/Desktop/NetBeans_Practicas/LPI_T1_LOAYZA_LEONARDO/src/java/servlet/EditarPeliculaServlet.java</file>
+            <file>file:/C:/Users/PC/Desktop/NetBeans_Practicas/LPI_T1_LOAYZA_LEONARDO/web/META-INF/context.xml</file>
+            <file>file:/C:/Users/PC/Desktop/NetBeans_Practicas/LPI_T1_LOAYZA_LEONARDO/src/java/model/Usuario.java</file>
+            <file>file:/C:/Users/PC/Desktop/NetBeans_Practicas/LPI_T1_LOAYZA_LEONARDO/scripts/BD_LOAYZA.txt</file>
+            <file>file:/C:/Users/PC/Desktop/NetBeans_Practicas/LPI_T1_LOAYZA_LEONARDO/src/java/dao/PeliculaDAO.java</file>
+            <file>file:/C:/Users/PC/Desktop/NetBeans_Practicas/LPI_T1_LOAYZA_LEONARDO/web/registrarPeliculas.jsp</file>
+            <file>file:/C:/Users/PC/Desktop/NetBeans_Practicas/LPI_T1_LOAYZA_LEONARDO/web/inicio.jsp</file>
+            <file>file:/C:/Users/PC/Desktop/NetBeans_Practicas/LPI_T1_LOAYZA_LEONARDO/src/java/servlet/RegistrarPeliculaServlet.java</file>
+            <file>file:/C:/Users/PC/Desktop/NetBeans_Practicas/LPI_T1_LOAYZA_LEONARDO/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/PC/Desktop/NetBeans_Practicas/LPI_T1_LOAYZA_LEONARDO/src/java/servlet/EliminarPeliculaServlet.java</file>
+            <file>file:/C:/Users/PC/Desktop/NetBeans_Practicas/LPI_T1_LOAYZA_LEONARDO/web/login.jsp</file>
+            <file>file:/C:/Users/PC/Desktop/NetBeans_Practicas/LPI_T1_LOAYZA_LEONARDO/src/java/model/Categoria.java</file>
+            <file>file:/C:/Users/PC/Desktop/NetBeans_Practicas/LPI_T1_LOAYZA_LEONARDO/src/java/dao/CategoriaDAO.java</file>
+            <file>file:/C:/Users/PC/Desktop/NetBeans_Practicas/LPI_T1_LOAYZA_LEONARDO/src/java/dao/Conexion.java</file>
+            <file>file:/C:/Users/PC/Desktop/NetBeans_Practicas/LPI_T1_LOAYZA_LEONARDO/src/java/dao/UsuarioDAO.java</file>
+            <file>file:/C:/Users/PC/Desktop/NetBeans_Practicas/LPI_T1_LOAYZA_LEONARDO/src/java/servlet/InicioServlet.java</file>
+            <file>file:/C:/Users/PC/Desktop/NetBeans_Practicas/LPI_T1_LOAYZA_LEONARDO/src/java/model/Pelicula.java</file>
+            <file>file:/C:/Users/PC/Desktop/NetBeans_Practicas/LPI_T1_LOAYZA_LEONARDO/src/java/servlet/LoginServlet.java</file>
+            <file>file:/C:/Users/PC/Desktop/NetBeans_Practicas/LPI_T1_LOAYZA_LEONARDO/src/java/util/MySQLConexion.java</file>
+        </group>
+    </open-files>
+</project-private>

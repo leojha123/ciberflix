@@ -1,0 +1,136 @@
+DROP DATABASE IF EXISTS BD_LOAYZA;
+CREATE DATABASE BD_LOAYZA;
+USE BD_LOAYZA;
+
+CREATE TABLE tb_categoria (
+    id_categoria INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL UNIQUE,
+    descripcion VARCHAR(255),
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE tb_usuario (
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    nombre_completo VARCHAR(150) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    estado ENUM('activo', 'inactivo') DEFAULT 'activo'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE tb_pelicula (
+    id_pelicula INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(200) NOT NULL,
+    descripcion TEXT NOT NULL,
+    duracion INT NOT NULL COMMENT 'Duración en minutos',
+    url_portada VARCHAR(500) NOT NULL,
+    anio INT NOT NULL COMMENT 'Año de estreno',
+    precio DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    id_categoria INT NOT NULL,
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_categoria) REFERENCES tb_categoria(id_categoria) ON DELETE RESTRICT,
+    INDEX idx_categoria (id_categoria),
+    INDEX idx_titulo (titulo),
+    INDEX idx_anio (anio)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO tb_categoria (nombre, descripcion) VALUES
+('Acción', 'Películas de acción, aventura y adrenalina'),
+('Comedia', 'Películas divertidas y de humor'),
+('Drama', 'Películas dramáticas y emotivas'),
+('Terror', 'Películas de miedo y suspenso'),
+('Ciencia Ficción', 'Películas futuristas y de tecnología'),
+('Animación', 'Películas animadas para toda la familia'),
+('Romance', 'Películas románticas y de amor'),
+('Thriller', 'Películas de suspenso e intriga'),
+('Documental', 'Documentales educativos y culturales'),
+('Musical', 'Películas con música y baile');
+
+
+INSERT INTO tb_usuario (usuario, password, nombre_completo, email) VALUES
+('admin', '123456', 'Administrador Sistema', 'admin@ciberflix.com'),
+('leonardo', 'leo123', 'Leonardo Loayza', 'leonardo.loayza@ciberflix.com'),
+('demo', 'demo123', 'Usuario Demo', 'demo@ciberflix.com');
+
+
+INSERT INTO tb_pelicula (titulo, descripcion, duracion, url_portada, anio, precio, id_categoria) 
+VALUES 
+-- CIENCIA FICCIÓN
+('Inception', 'Dom Cobb es un ladrón experto en el arte de apropiarse de los secretos del subconsciente ajeno mientras duerme. Su habilidad lo ha convertido en un codiciado jugador en el traicionero mundo del espionaje corporativo.', 148,
+ 'https://c7.alamy.com/comp/2C4X083/inception-2010-directed-by-christopher-nolan-and-starring-leonardo-dicaprio-joseph-gordon-levitt-ellen-page-tom-hardy-and-ken-watanabe-a-team-break-in-to-the-subconscious-of-a-businessman-using-dream-sharing-technology-in-order-a-plant-a-seed-to-influence-his-decision-in-the-real-world-2C4X083.jpg',
+ 2010, 25.90, 5),
+ 
+('The Matrix', 'Thomas Anderson es un programador que lleva una doble vida: de día es un ingeniero de software respetado, y de noche es Neo, un hacker que trabaja con un ordenador. Su vida cambiará para siempre cuando Morfeo le revele la verdad sobre Matrix.', 136,
+ 'https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg',
+ 1999, 25.90, 5),
+
+('Interstellar', 'Un grupo de científicos y exploradores, encabezados por Cooper, se embarcan en un viaje espacial para encontrar un lugar con las condiciones necesarias para reemplazar a la Tierra y comenzar una nueva vida allí.', 169,
+ 'https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg',
+ 2014, 28.50, 5),
+
+-- ACCIÓN
+('John Wick', 'John Wick es un legendario asesino a sueldo retirado que se ve obligado a regresar cuando un gángster ruso y su banda roban su preciado coche y matan a su adorado perro, último regalo de su esposa fallecida.', 101,
+ 'https://image.tmdb.org/t/p/w500/fZPSd91yGE9fCcCe6OoQr6E3Bev.jpg',
+ 2014, 22.50, 1),
+
+('Mad Max: Fury Road', 'Perseguido por su turbulento pasado, el errante Mad Max cree que la mejor forma de sobrevivir es ir solo por el mundo. Sin embargo, se ve arrastrado a un grupo que huye por el desierto en un War Rig conducido por la Imperator Furiosa.', 120,
+ 'https://image.tmdb.org/t/p/w500/hA2ple9q4qnwxp3hKVNhroipsir.jpg',
+ 2015, 24.00, 1),
+
+-- TERROR
+('The Conjuring', 'Basada en una historia real documentada por los reconocidos demonólogos Ed y Lorraine Warren. La familia Perron se muda a una casa de campo en Rhode Island, donde comienzan a experimentar fenómenos paranormales aterradores.', 112,
+ 'https://image.tmdb.org/t/p/w500/wVYREutTvI2tmxr6ujrHT704wGF.jpg',
+ 2013, 20.00, 4),
+
+('A Quiet Place', 'En un mundo post-apocalíptico, una familia se ve obligada a vivir en silencio mientras se esconde de monstruos con un oído agudo que cazan por el sonido.', 90,
+ 'https://image.tmdb.org/t/p/w500/nAU74GmpUk7t5iklEp3bufwDq4n.jpg',
+ 2018, 21.50, 4),
+
+-- ANIMACIÓN
+('Toy Story', 'Woody, un vaquero de juguete, ve amenazada su posición de líder cuando llega Buzz Lightyear, un guardián espacial. Juntos tendrán que aprender a trabajar en equipo cuando ambos se pierden lejos de casa.', 81,
+ 'https://image.tmdb.org/t/p/w500/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg',
+ 1995, 18.00, 6),
+
+('Coco', 'Miguel es un niño que sueña con convertirse en músico, pero su familia se lo prohíbe. Por accidente, entra en la Tierra de los Muertos, de donde solo podrá salir si un familiar le concede su bendición.', 105,
+ 'https://image.tmdb.org/t/p/w500/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg',
+ 2017, 23.00, 6),
+
+-- DRAMA
+('The Shawshank Redemption', 'Andy Dufresne, un exitoso banquero, es condenado a cadena perpetua por el asesinato de su esposa y su amante. En prisión conocerá a Red, con quien entablará una gran amistad mientras lucha por mantener la esperanza.', 142,
+ 'https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg',
+ 1994, 26.00, 3),
+
+('Forrest Gump', 'Forrest Gump es un chico con discapacidades mentales que, a pesar de todo, consigue hacer cosas maravillosas en su vida, además de estar presente en eventos cruciales de la historia de Estados Unidos.', 142,
+ 'https://image.tmdb.org/t/p/w500/saHP97rTPS5eLmrLQEcANmKrsFl.jpg',
+ 1994, 25.00, 3);
+
+
+SELECT * FROM tb_categoria;
+
+-- Ver todos los usuarios
+SELECT * FROM tb_usuario;
+
+-- Ver todas las películas con sus categorías
+SELECT 
+    p.id_pelicula,
+    p.titulo,
+    p.anio,
+    p.duracion,
+    p.precio,
+    c.nombre AS categoria
+FROM tb_pelicula p
+INNER JOIN tb_categoria c ON p.id_categoria = c.id_categoria
+ORDER BY p.id_pelicula;
+
+-- Contar películas por categoría
+SELECT 
+    c.nombre AS categoria,
+    COUNT(p.id_pelicula) AS total_peliculas
+FROM tb_categoria c
+LEFT JOIN tb_pelicula p ON c.id_categoria = p.id_categoria
+GROUP BY c.id_categoria, c.nombre
+ORDER BY total_peliculas DESC;
