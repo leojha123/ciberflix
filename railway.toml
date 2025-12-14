@@ -1,1 +1,7 @@
-(echo [build] && echo builder = "dockerfile" && echo. && echo [deploy] && echo startCommand = "catalina.sh run" && echo healthcheckPath = "/" && echo healthcheckTimeout = 300) > railway.toml
+[build]
+builder = "dockerfile"
+
+[deploy]
+startCommand = "catalina.sh run"
+healthcheckPath = "/"
+healthcheckTimeout = 300
